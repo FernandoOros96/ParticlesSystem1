@@ -8,20 +8,24 @@ namespace Ball
 {
     public class Ball
     {
-        public float sizeBall;
+        public float sizeBallx;
+        public float sizeBally;
         public float posXBall;
         public float posYBall;
         public float velx, vely;
         public Color colorB;
-        public Ball()
+        public int timeLive;
+        public Ball(Size size)
         {
             Random r = new Random();
-            sizeBall = r.Next(20, 50);
-            posXBall = r.Next(0, 600);
-            posYBall = r.Next(0, 250);
-            velx = r.Next(4, 15);
-            vely = r.Next(4, 15);
-            colorB = Color.FromArgb(r.Next(256), r.Next(256), r.Next(256));
+            sizeBallx = r.Next(2, 4);
+            sizeBally = r.Next(20, 60);
+            posXBall = r.Next(0, size.Width);
+            posYBall = r.Next(-size.Height, 0);
+            velx = 0;
+            vely = r.Next(10, 50);
+            colorB = Color.FromArgb(r.Next(256),0, 0, r.Next(256));
+            timeLive = r.Next(20, 80);
         }
     }
 }
